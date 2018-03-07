@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="040e87f1-05c8-46ad-8df0-65f7d5889780" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/offer/entity/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/offer/exception/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/offer/repository/AccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/offer/controller/OfferRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/offer/controller/OfferRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/offer/entity/Offer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/offer/entity/Offer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -75,8 +71,8 @@
       <file leaf-file-name="Offer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/offer/entity/Offer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="34" column="22" lean-forward="true" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+            <state relative-caret-position="345">
+              <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -469,6 +465,7 @@
         <option value="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/offer/exception/UserNotFoundException.java" />
         <option value="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/offer/repository/AccountRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/offer/controller/OfferRestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/offer/entity/Offer.java" />
       </list>
     </option>
   </component>
@@ -653,12 +650,12 @@
       <option name="presentableId" value="Default" />
       <updated>1520426426448</updated>
       <workItem from="1520426427973" duration="20000" />
-      <workItem from="1520426874677" duration="3391000" />
+      <workItem from="1520426874677" duration="3798000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3411000" />
+    <option name="totallyTimeSpent" value="3818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1853" height="1053" extended-state="6" />
@@ -757,8 +754,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/offer/entity/Offer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="34" column="22" lean-forward="true" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+        <state relative-caret-position="345">
+          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
         </state>
       </provider>
     </entry>

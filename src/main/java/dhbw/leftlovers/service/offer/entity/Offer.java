@@ -35,6 +35,7 @@ public class Offer {
     // TODO: Add Image
 
     public Offer(Account account, String titel, String description, Date creationDate, Time creationTime) {
+        this.account = account;
         this.titel = titel;
         this.description = description;
         this.creationDate = creationDate;
