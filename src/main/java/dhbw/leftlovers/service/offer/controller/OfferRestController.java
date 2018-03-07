@@ -17,16 +17,17 @@ class OfferRestController {
 
     private final OfferRepository offerRepository;
 
-
     private final AccountRepository accountRepository;
 
     // TODO: Zugriff auf Account Repository
 
     @Autowired
-    public OfferRestController(OfferRepository offerRepository) {
-
+    public OfferRestController(OfferRepository offerRepository, AccountRepository accountRepository) {
         this.offerRepository = offerRepository;
+        this.accountRepository = accountRepository;
     }
+
+    // TODO: Anbindung validate Methode aus anderem Service
 
     @RequestMapping(method = RequestMethod.GET)
     Collection<Offer> readOffers(@PathVariable String userId){
@@ -34,13 +35,15 @@ class OfferRestController {
         return this.offerRepository.findByAccountUsername(userId);
     }
 
+    // TODO: Anbindung validate Methode aus anderem Service
+
     @RequestMapping(method = RequestMethod.GET, value = "/{offerId}")
     Offer readOffer(@PathVariable String userId, @PathVariable Long offerId) {
         this.validateUser(userId);
         return this.offerRepository.findOne(offerId);
     }
 
-
+    // TODO: Anbindung validate Methode aus anderem Service
 
     @RequestMapping(method = RequestMethod.POST)
     ResponseEntity<?> add(@PathVariable String userId, @RequestBody Offer input){
@@ -64,11 +67,7 @@ class OfferRestController {
 
     // TODO: delete method
 
-    private void validateUser(String userId){
+    // TODO: validate User in leftlovers-account-service
 
-        this.accountRepository.findByUsername(userId).orElseThrow(
-                () -> new UserNotFoundException(userId));
-
-    }
 
 }
