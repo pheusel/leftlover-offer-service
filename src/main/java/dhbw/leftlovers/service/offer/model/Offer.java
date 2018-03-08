@@ -1,4 +1,4 @@
-package dhbw.leftlovers.service.offer.entity;
+package dhbw.leftlovers.service.offer.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -8,8 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import java.sql.Date;
-import java.sql.Time;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -22,24 +21,21 @@ public class Offer {
 
     @JsonIgnore
     @ManyToOne
-    private Account account;
+    private User user;
 
     private String titel;
 
     private String description;
 
-    private Date creationDate;
-
-    private Time creationTime;
+    private LocalDateTime creationTimestamp;
 
     // TODO: Add Image
 
-    public Offer(Account account, String titel, String description, Date creationDate, Time creationTime) {
-        this.account = account;
+    public Offer(User user, String titel, String description, LocalDateTime creationTimestamp) {
+        this.user = user;
         this.titel = titel;
         this.description = description;
-        this.creationDate = creationDate;
-        this.creationTime = creationTime;
+        this.creationTimestamp = creationTimestamp;
     }
 }
 

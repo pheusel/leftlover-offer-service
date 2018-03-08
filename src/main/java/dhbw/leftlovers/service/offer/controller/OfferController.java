@@ -1,9 +1,9 @@
 package dhbw.leftlovers.service.offer.controller;
 
-import dhbw.leftlovers.service.offer.entity.Offer;
+import dhbw.leftlovers.service.offer.model.Offer;
 import dhbw.leftlovers.service.offer.exception.UserNotFoundException;
-import dhbw.leftlovers.service.offer.repository.AccountRepository;
-import dhbw.leftlovers.service.offer.repository.OfferRepository;
+import dhbw.leftlovers.service.offer.service.OfferService;
+import dhbw.leftlovers.service.offer.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,38 +14,34 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("/{userId}/offers")
-class OfferRestController {
-
-    private final OfferRepository offerRepository;
-
-    private final AccountRepository accountRepository;
+class OfferController {
 
     @Autowired
-    public OfferRestController(OfferRepository offerRepository, AccountRepository accountRepository) {
-        this.offerRepository = offerRepository;
-        this.accountRepository = accountRepository;
-    }
+    private OfferService offerService;
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(method = RequestMethod.GET)
     Collection<Offer> readOffers(@PathVariable String userId) {
         this.validateUser(userId);
-        return this.offerRepository.findByAccountUsername(userId);
+        return this.offerService.findByAccountUsername(userId);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{offerId}")
     Offer readOffer(@PathVariable String userId, @PathVariable Long offerId) {
         this.validateUser(userId);
-        return this.offerRepository.findOne(offerId);
+        return this.offerService.findOne(offerId);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     ResponseEntity<?> add(@PathVariable String userId, @RequestBody Offer input) {
         this.validateUser(userId);
 
-        return this.accountRepository
+        return this.userService
                 .findByUsername(userId)
                 .map(account -> {
-                    Offer result = offerRepository.save(new Offer(account, input.getTitel(), input.getDescription(), input.getCreationDate(), input.getCreationTime()));
+                    Offer result = offerService.save(new Offer(account, input.getTitel(), input.getDescription(), input.getCreationTimestamp()));
 
                     URI location = ServletUriComponentsBuilder
                             .fromCurrentRequest().path("/{id}")
@@ -54,12 +50,11 @@ class OfferRestController {
                     return ResponseEntity.created(location).build();
                 })
                 .orElse(ResponseEntity.noContent().build());
-
     }
 
     private void validateUser(String userId) {
 
-        this.accountRepository.findByUsername(userId).orElseThrow(
+        this.userService.findByUsername(userId).orElseThrow(
                 () -> new UserNotFoundException(userId));
 
     }

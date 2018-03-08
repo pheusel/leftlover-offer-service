@@ -1,6 +1,6 @@
 package dhbw.leftlovers.service.offer.repository;
 
-import dhbw.leftlovers.service.offer.entity.Offer;
+import dhbw.leftlovers.service.offer.model.Offer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Collection;
